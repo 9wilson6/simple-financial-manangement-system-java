@@ -39,6 +39,7 @@ public class Admin extends javax.swing.JFrame {
         bonface();
         anthony();
         ken();
+
     }
     private void time(){
         Calendar cal= new GregorianCalendar();
@@ -61,6 +62,11 @@ public class Admin extends javax.swing.JFrame {
             rs = pst.executeQuery();
 //            while (rs.next()) {                
                 tblwilli.setModel(DbUtils.resultSetToTableModel(rs));
+                 int j =0;
+            for (int i = 0; i < tblwilli.getRowCount(); i++) {
+                j +=Integer.parseInt(tblwilli.getValueAt(i, 1).toString());
+                wilsonTotal.setText(""+ j);
+            }
 //            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -77,7 +83,11 @@ public class Admin extends javax.swing.JFrame {
             rs=pst.executeQuery();
                         
                 tblboni.setModel(DbUtils.resultSetToTableModel(rs));
-         
+         int j =0;
+            for (int i = 0; i < tblboni.getRowCount(); i++) {
+                j +=Integer.parseInt(tblboni.getValueAt(i, 1).toString());
+                boniitotal.setText(""+ j);
+            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -93,7 +103,11 @@ public class Admin extends javax.swing.JFrame {
             rs=pst.executeQuery();
                         
                 tblAnthony.setModel(DbUtils.resultSetToTableModel(rs));
-           
+           int j =0;
+            for (int i = 0; i < tblAnthony.getRowCount(); i++) {
+                j +=Integer.parseInt(tblAnthony.getValueAt(i, 1).toString());
+                AnthonyTotal.setText(""+ j);
+            }
         } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex);
         }
@@ -109,7 +123,12 @@ public class Admin extends javax.swing.JFrame {
             rs=pst.executeQuery();
                           
                 tblken.setModel(DbUtils.resultSetToTableModel(rs));
-           
+           int J=0;
+            for (int i = 0; i < tblken.getRowCount(); i++) {
+                
+                J += Integer.parseInt(tblken.getValueAt(i, 1).toString());
+                keniitotal.setText(""+J);
+            }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -117,21 +136,26 @@ public class Admin extends javax.swing.JFrame {
     
     }
   private  void overall(){
-      int n=0;
+     
         try {
            
             String sql4="select * from overall";
             pst= conn.prepareStatement(sql4);
             rs=pst.executeQuery();
            tblComprehensive.setModel(DbUtils.resultSetToTableModel(rs));
-          
-            
+         int  j=0;
+            for (int i = 0; i < tblComprehensive.getRowCount(); i++) {
+                j +=Integer.parseInt(tblComprehensive.getValueAt(i, 1).toString());
+            }
+           lblTotal.setText("" +j);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        
     
     
     }
+  
 
 
 
@@ -158,18 +182,27 @@ public class Admin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblComprehensive = new javax.swing.JTable();
         jlblAva = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblboni = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        boniitotal = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblwilli = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        wilsonTotal = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblken = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        keniitotal = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         tblAnthony = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        AnthonyTotal = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -279,30 +312,37 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblComprehensive);
 
-        jlblAva.setText("oo");
+        jlblAva.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jlblAva.setForeground(new java.awt.Color(204, 0, 0));
+        jlblAva.setText("Total:");
+
+        lblTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 28, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(285, 285, 285)
                 .addComponent(jlblAva, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jlblAva)
-                        .addGap(168, 168, 168))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlblAva)
+                    .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(87, 87, 87))
         );
 
         tblWilson.addTab("COPREHENSIVE", jPanel8);
@@ -323,19 +363,37 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblboni);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel6.setText("Total:");
+
+        boniitotal.setBackground(new java.awt.Color(255, 255, 255));
+        boniitotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        boniitotal.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 18, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 28, Short.MAX_VALUE))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(293, 293, 293)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(boniitotal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(boniitotal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(87, 87, 87))
         );
 
@@ -357,21 +415,37 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblwilli);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel7.setText("Total:");
+
+        wilsonTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        wilsonTotal.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 18, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(288, 288, 288)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(wilsonTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87))
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(wilsonTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         tblWilson.addTab("WILSON", jPanel5);
@@ -392,21 +466,39 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(tblken);
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel8.setText("Total:");
+
+        keniitotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        keniitotal.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(279, 279, 279)
+                        .addComponent(jLabel8)
+                        .addGap(38, 38, 38)
+                        .addComponent(keniitotal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(keniitotal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81))
         );
 
         tblWilson.addTab("KEN", jPanel6);
@@ -427,21 +519,38 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tblAnthony);
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel9.setText("Total:");
+
+        AnthonyTotal.setBackground(new java.awt.Color(255, 255, 255));
+        AnthonyTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        AnthonyTotal.setForeground(new java.awt.Color(204, 0, 0));
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 28, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(281, 281, 281)
+                .addComponent(jLabel9)
+                .addGap(27, 27, 27)
+                .addComponent(AnthonyTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(AnthonyTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         tblWilson.addTab("ANTHONY", jPanel7);
@@ -753,7 +862,9 @@ public class Admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminHome;
+    private javax.swing.JLabel AnthonyTotal;
     private javax.swing.JComboBox<String> CMBmember;
+    private javax.swing.JLabel boniitotal;
     private javax.swing.JMenu datemi;
     private javax.swing.JMenu file;
     private javax.swing.JButton jButton1;
@@ -767,6 +878,10 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -786,7 +901,9 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel jlblAva;
+    private javax.swing.JLabel keniitotal;
     private javax.swing.JPanel layoutpnl;
+    private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel membersRecs;
     private javax.swing.JTextArea otherinfo;
     private javax.swing.JTable tblAnthony;
@@ -797,5 +914,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JTable tblwilli;
     private javax.swing.JMenu timeMi;
     private javax.swing.JTextField txtAmount;
+    private javax.swing.JLabel wilsonTotal;
     // End of variables declaration//GEN-END:variables
 }
