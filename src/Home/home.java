@@ -226,7 +226,7 @@ txtPassword.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordFocusGained
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        try {
+try {
             String sql="select * from Configs where Username='"+txtUsername.getText()+"' and Password='"+txtPassword.getText()+"'";
             pst=conn.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -239,14 +239,17 @@ txtPassword.setText("");        // TODO add your handling code here:
                 @Override
                 public void run() {
                   
-                    
+                         
+                         main m = new main();
+                       
+                        m.setVisible(true);
+                        dispose();
                     
                     try {
-                        main m = new main();
+                         
+                       
                         
-                        m.show();
-                        loader.hide();
-                        dispose();
+                      
                        // conn.close();
                         rs.close();
                         pst.close();
@@ -255,7 +258,7 @@ txtPassword.setText("");        // TODO add your handling code here:
                     }
                     
                 }
-            },1000*4);
+            }, 1000*4);
             
         } else {
                 JOptionPane.showMessageDialog(null, "wrong credentials");

@@ -20,7 +20,7 @@ public class dbConfig {
    static Connection conn= null;
    public static Connection getConn(){
        try {
-           conn=DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Sam\\Documents\\NetBeansProjects\\MyGroupProject\\GodsLove.sqlite");
+           conn=DriverManager.getConnection("jdbc:sqlite:GodsLove.sqlite");
             return conn;
        } catch (SQLException ex) {
            JOptionPane.showMessageDialog(null, ex);
