@@ -2059,9 +2059,9 @@ public class main extends javax.swing.JFrame {
                     if (pst != null) {
                         pst.close();
                     }
-                    if (conn != null) {
-                        conn.close();
-                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
                 } catch (Exception e) {
                 }
                 new Timer().schedule(new TimerTask() {
@@ -2086,37 +2086,121 @@ public class main extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         home.hide();
         AboutPnl.show();
+         try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
+                } catch (Exception e) {
+                }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         home.show();
         AboutPnl.hide();
+         try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
+                } catch (Exception e) {
+                }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         AdminLogIn.hide();
         home.show();
+         try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
+                } catch (Exception e) {
+                }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         home.hide();
         ACCOUnts.show();
+         try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
+                } catch (Exception e) {
+                }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         ACCOUnts.hide();
         home.show();
+         try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
+                } catch (Exception e) {
+                }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
            ACCOUnts.hide();
            home.show();// TODO add your handling code here:
+            try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
+                } catch (Exception e) {
+                }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
 ACCOUnts.hide();
 home.show();// TODO add your handling code here:
+ try {
+                    if (rs != null) {
+                        rs.close();
+                    }
+                    if (pst != null) {
+                        pst.close();
+                    }
+//                    if (conn != null) {
+//                        conn.close();
+//                    }
+                } catch (Exception e) {
+                }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed

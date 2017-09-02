@@ -328,9 +328,9 @@ public class Admin extends javax.swing.JFrame {
             AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AdminHomeLayout.createSequentialGroup()
                 .addGap(193, 193, 193)
-                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addGroup(AdminHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -872,7 +872,7 @@ public class Admin extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(layoutpnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(layoutpnl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1064,9 +1064,9 @@ SystemConfigs.show();
                 pst.close();
                 
             }
-             if (conn !=null) {
-                conn.close();
-            }
+//             if (conn !=null) {
+//                conn.close();
+//            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -1076,6 +1076,7 @@ SystemConfigs.show();
         AdminHome.hide();
          main m = new main();
          m.setVisible(true);
+         this.dispose();
           try {
             if (rs!=null) {
                 rs.close();
@@ -1084,9 +1085,10 @@ SystemConfigs.show();
                 pst.close();
                 
             }
-             if (conn !=null) {
-                conn.close();
-            }}catch (SQLException e) {
+//             if (conn !=null) {
+//                conn.close();
+//            }
+          }catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
